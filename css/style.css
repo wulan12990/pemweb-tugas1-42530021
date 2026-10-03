@@ -1,0 +1,914 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================================
+   1. VARIABEL CSS
+========================================= */
+
+:root {
+    --color-primary: #2563eb;
+    --color-primary-dark: #1d4ed8;
+    --color-primary-light: #dbeafe;
+
+    --color-dark: #0f172a;
+    --color-dark-soft: #334155;
+
+    --color-text: #475569;
+    --color-text-light: #64748b;
+
+    --color-white: #ffffff;
+    --color-light: #f8fafc;
+    --color-border: #e2e8f0;
+
+    --color-accent: #0ea5e9;
+
+    --font-main: Arial, Helvetica, sans-serif;
+
+    --container-width: 1200px;
+
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+
+    --shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+
+/* =========================================
+   2. DASAR DOKUMEN
+========================================= */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+body {
+    min-width: 320px;
+    overflow-x: hidden;
+
+    background-color: var(--color-white);
+    color: var(--color-text);
+
+    font-family: var(--font-main);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================
+   3. HEADER & NAVIGATION
+========================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background-color: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(12px);
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: var(--space-md);
+
+    width: min(100% - 2rem, var(--container-width));
+    margin-inline: auto;
+    padding-block: 1rem;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+
+    color: var(--color-dark);
+    font-weight: 700;
+}
+
+.logo-mark {
+    display: grid;
+    place-items: center;
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+    border-radius: 0.7rem;
+
+    background-color: var(--color-primary);
+    color: var(--color-white);
+
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+
+.logo-text {
+    font-size: 1rem;
+}
+
+.nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.75rem;
+}
+
+.nav-list a {
+    display: block;
+
+    padding: 0.4rem 0.6rem;
+
+    color: var(--color-text);
+    border-radius: var(--radius-sm);
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.nav-list a:hover,
+.nav-list a:focus-visible {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+}
+
+
+/* =========================================
+   4. MAIN
+========================================= */
+
+main {
+    width: 100%;
+}
+
+
+/* =========================================
+   5. HERO SECTION
+========================================= */
+
+.hero-section {
+    display: grid;
+    gap: var(--space-xl);
+
+    width: min(100% - 2rem, var(--container-width));
+    margin-inline: auto;
+
+    padding-block: 4rem 3rem;
+}
+
+.hero-content {
+    max-width: 720px;
+}
+
+.eyebrow,
+.section-label {
+    margin-bottom: 0.75rem;
+
+    color: var(--color-primary);
+
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.hero-content h1 {
+    margin-bottom: 1.25rem;
+
+    color: var(--color-dark);
+
+    font-size: clamp(2.3rem, 10vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+}
+
+.hero-content h1 span {
+    color: var(--color-primary);
+}
+
+.hero-description {
+    max-width: 650px;
+    margin-bottom: 1.75rem;
+
+    color: var(--color-text-light);
+    font-size: 1.05rem;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 2.9rem;
+    padding: 0.7rem 1.2rem;
+
+    border: 2px solid transparent;
+    border-radius: 0.7rem;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.button-primary:hover,
+.button-primary:focus-visible {
+    background-color: var(--color-primary-dark);
+}
+
+.button-secondary {
+    border-color: var(--color-border);
+    background-color: var(--color-white);
+    color: var(--color-dark);
+}
+
+.button-secondary:hover,
+.button-secondary:focus-visible {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.hero-card {
+    padding: 1.5rem;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+
+    background:
+        linear-gradient(
+            145deg,
+            #eff6ff,
+            #f8fafc
+        );
+
+    box-shadow: var(--shadow-md);
+}
+
+.hero-card-label {
+    margin-bottom: 0.5rem;
+
+    color: var(--color-primary);
+
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.hero-card h2 {
+    margin-bottom: 0.75rem;
+
+    color: var(--color-dark);
+    font-size: 1.5rem;
+}
+
+.hero-card p {
+    margin-bottom: 1rem;
+}
+
+.focus-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.focus-list li {
+    position: relative;
+
+    padding-left: 1.25rem;
+
+    color: var(--color-dark-soft);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.focus-list li::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+
+    width: 0.4rem;
+    height: 0.4rem;
+
+    border-radius: 50%;
+    background-color: var(--color-primary);
+}
+
+
+/* =========================================
+   6. SECTION UMUM
+========================================= */
+
+.content-section {
+    width: min(100% - 2rem, var(--container-width));
+    margin-inline: auto;
+
+    padding-block: 4rem;
+}
+
+.content-section:nth-child(even) {
+    background-color: var(--color-light);
+}
+
+.section-heading {
+    max-width: 700px;
+    margin-bottom: 2rem;
+}
+
+.section-heading h2 {
+    margin-bottom: 0.75rem;
+
+    color: var(--color-dark);
+
+    font-size: clamp(1.8rem, 6vw, 2.7rem);
+    line-height: 1.15;
+}
+
+.section-heading > p:last-child {
+    color: var(--color-text-light);
+}
+
+
+/* =========================================
+   7. TENTANG
+========================================= */
+
+.about-card {
+    display: grid;
+    gap: var(--space-xl);
+}
+
+.about-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.about-highlight {
+    padding-left: 1rem;
+
+    border-left: 4px solid var(--color-primary);
+
+    color: var(--color-dark);
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.about-info {
+    padding: 1.5rem;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-sm);
+}
+
+.about-info h3 {
+    margin-bottom: 1rem;
+
+    color: var(--color-dark);
+    font-size: 1.2rem;
+}
+
+.about-info ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.about-info li {
+    padding: 0.75rem;
+
+    border-radius: var(--radius-sm);
+    background-color: var(--color-light);
+
+    color: var(--color-dark-soft);
+    font-size: 0.9rem;
+}
+
+
+/* =========================================
+   8. PROJECT GRID
+========================================= */
+
+.project-grid {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(280px, 1fr)
+    );
+
+    gap: 1.5rem;
+}
+
+.project-card {
+    overflow: hidden;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+
+    background-color: var(--color-white);
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.project-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 160px;
+
+    background-color: var(--color-dark);
+
+    color: var(--color-white);
+
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.project-visual-one {
+    background:
+        linear-gradient(
+            135deg,
+            #172554,
+            #2563eb
+        );
+}
+
+.project-visual-two {
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #0ea5e9
+        );
+}
+
+.project-visual-three {
+    background:
+        linear-gradient(
+            135deg,
+            #164e63,
+            #0284c7
+        );
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.75rem;
+
+    padding: 1.5rem;
+}
+
+.project-category {
+    color: var(--color-primary);
+
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.project-content h3 {
+    color: var(--color-dark);
+    font-size: 1.25rem;
+    line-height: 1.3;
+}
+
+.project-content p:not(.project-category) {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    margin-top: 0.25rem;
+}
+
+.project-tags li {
+    padding: 0.3rem 0.65rem;
+
+    border-radius: 999px;
+
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   9. SKILLS GRID
+========================================= */
+
+.skills-grid {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(220px, 1fr)
+    );
+
+    gap: 1rem;
+}
+
+.skill-card {
+    position: relative;
+
+    padding: 1.5rem;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+
+    background-color: var(--color-white);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.skill-number {
+    display: block;
+
+    margin-bottom: 1.25rem;
+
+    color: var(--color-primary);
+
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.skill-card h3 {
+    margin-bottom: 0.5rem;
+
+    color: var(--color-dark);
+    font-size: 1.15rem;
+}
+
+.skill-card p {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+}
+
+
+/* =========================================
+   10. PENDIDIKAN
+========================================= */
+
+.education-grid {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(280px, 1fr)
+    );
+
+    gap: 1.5rem;
+
+    margin-bottom: 1.5rem;
+}
+
+.education-card {
+    padding: 1.5rem;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+
+    background-color: var(--color-white);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.education-period {
+    margin-bottom: 0.5rem;
+
+    color: var(--color-primary);
+
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.education-card h3 {
+    margin-bottom: 0.75rem;
+
+    color: var(--color-dark);
+    font-size: 1.25rem;
+}
+
+.education-card p:last-child {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+}
+
+.learning-callout {
+    padding: 1.5rem;
+
+    border-radius: var(--radius-lg);
+
+    background-color: var(--color-dark);
+    color: var(--color-white);
+}
+
+.learning-callout h3 {
+    margin-bottom: 0.5rem;
+
+    font-size: 1.2rem;
+}
+
+.learning-callout p {
+    color: #cbd5e1;
+}
+
+
+/* =========================================
+   11. KONTAK
+========================================= */
+
+.contact-card {
+    display: grid;
+    gap: 2rem;
+
+    padding: 1.5rem;
+
+    border-radius: var(--radius-xl);
+
+    background-color: var(--color-dark);
+    color: var(--color-white);
+
+    box-shadow: var(--shadow-md);
+}
+
+.contact-text h3 {
+    margin-bottom: 0.75rem;
+
+    font-size: 1.4rem;
+    line-height: 1.3;
+}
+
+.contact-text p {
+    color: #cbd5e1;
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    font-style: normal;
+}
+
+.contact-list p {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.contact-list strong {
+    color: #94a3b8;
+
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.contact-list a {
+    width: fit-content;
+
+    color: var(--color-white);
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    overflow-wrap: anywhere;
+}
+
+.contact-list a:hover,
+.contact-list a:focus-visible {
+    color: #93c5fd;
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   12. FOOTER
+========================================= */
+
+.site-footer {
+    border-top: 1px solid var(--color-border);
+
+    background-color: var(--color-white);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    width: min(100% - 2rem, var(--container-width));
+    margin-inline: auto;
+
+    padding-block: 2rem;
+
+    color: var(--color-text-light);
+
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+
+/* =========================================
+   13. FOCUS ACCESSIBILITY
+========================================= */
+
+a:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   14. TABLET
+   ≥ 768px
+========================================= */
+
+@media (min-width: 768px) {
+
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        padding-block: 1rem;
+    }
+
+    .nav-list {
+        justify-content: flex-end;
+    }
+
+    .hero-section {
+        grid-template-columns: 1.4fr 0.8fr;
+        align-items: center;
+
+        padding-block: 6rem 5rem;
+    }
+
+    .about-card {
+        grid-template-columns: 1.4fr 0.8fr;
+        align-items: start;
+    }
+
+    .contact-card {
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
+
+        padding: 2.5rem;
+    }
+
+    .footer-content {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        text-align: left;
+    }
+}
+
+
+/* =========================================
+   15. DESKTOP
+   ≥ 1024px
+========================================= */
+
+@media (min-width: 1024px) {
+
+    .hero-section,
+    .content-section {
+        width: min(100% - 4rem, var(--container-width));
+    }
+
+    .hero-section {
+        min-height: 680px;
+        padding-block: 7rem;
+    }
+
+    .hero-content h1 {
+        max-width: 750px;
+    }
+
+    .content-section {
+        padding-block: 6rem;
+    }
+
+    .section-heading {
+        margin-bottom: 3rem;
+    }
+
+    .project-grid {
+        gap: 2rem;
+    }
+
+    .skills-grid {
+        gap: 1.5rem;
+    }
+
+    .contact-card {
+        padding: 3rem;
+    }
+}
+
+
+/* =========================================
+   16. REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
