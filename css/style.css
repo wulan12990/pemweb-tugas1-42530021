@@ -1,8 +1,15 @@
+/* Author: Refi Wulan Dari */
+
+/* =========================================
+   GLOBAL RESET
+========================================= */
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
 
 /* =========================================
    1. VARIABEL CSS
@@ -828,6 +835,12 @@ a:focus-visible {
         align-items: center;
 
         padding-block: 6rem 5rem;
+    }
+
+    /* Penyesuaian responsive untuk tablet */
+    .hero-content {
+        max-width: 900px;
+        margin-inline: auto;
     }
 
     .about-card {
